@@ -1,0 +1,11 @@
+.footer{
+  background: #5F9EA0;
+  padding: 10px 13px;
+}
+a{
+  color: black;
+  text-decoration: none;
+}
+a:hover{
+  color: rgb(68, 68, 243);
+}

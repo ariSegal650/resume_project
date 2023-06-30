@@ -1,0 +1,136 @@
+*{
+    box-sizing: content-box;
+}
+.flex {
+    min-height: 86vh;
+    background: #fbceb124;
+}
+
+.main {
+    justify-content: center;
+    display: grid;
+    height: max-content;
+}
+.Welcome {
+    display: grid;
+    justify-content: center;
+}
+
+.font-size {
+    font-size: 30px;
+    color: #5F9EA0;
+    display: grid;
+    direction: rtl;
+    line-height: 0.8;
+    margin: 20px 10px 0 10px;
+    justify-content: center;
+    text-align: center;
+}
+
+.languge {
+    margin: 20px 0px;
+    justify-items: center;
+    display: grid;
+}
+
+.languge p {
+    color: #5F9EA0;
+    font-size: large;
+}
+
+/* list languges */
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: max-content;
+}
+
+li.haderL {
+    border: solid 1px;
+    margin-bottom: 2px;
+    background: white;
+    padding: 2px 28px;
+    cursor: pointer;
+    display: flex;
+    height: 20px;
+
+}
+
+.languge .list {
+    box-shadow: black 0px 0px 7px 0px;
+    border-radius: 3px;
+    border: solid 1px;
+    overflow: hidden;
+    position: fixed;
+    width: auto;
+}
+
+.selectOne {
+    background: #c1e0fc !important;
+}
+
+.list li {
+    background: white;
+    padding: 6px 0px;
+    padding-left: 2px;
+    cursor: pointer;
+    z-index: 2;
+    height: 20px;
+    padding: 6px 37px;
+}
+
+img {
+    height: 100%;
+    margin-left: 30px;
+    width: 35px;
+}
+
+.main button {
+    background-color: #6abec0;
+    width: max-content;
+    justify-self: center;
+    margin-top: 174px;
+    padding: 0px 25px;
+    /* margin-top: 30px; */
+}
+
+
+.list {
+    animation-name: enter;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+.login{
+  position: absolute;
+    width: 100%;
+    z-index: 3;
+    display: grid;
+    height: 86vh;
+}
+.login div{
+  padding: 2vw;
+    height: -webkit-fill-available;
+    background: white;
+    justify-self: center;
+}
+.login span{
+  justify-content: end;
+    display: grid;
+    cursor: pointer;
+}
+@keyframes enter {
+    0% {
+        opacity: 0;
+        transform: translateY(+50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.linkdein {
+    display: none;
+}

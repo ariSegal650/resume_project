@@ -1,0 +1,8 @@
+# global folders
+.vscode
+.vs
+
+# folders server side
+bin
+obj
+
