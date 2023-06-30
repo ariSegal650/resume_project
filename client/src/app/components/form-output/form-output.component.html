@@ -1,0 +1,110 @@
+<div class="output" id="output1" [ngClass]="{'downloadS':downloadClick}">
+
+    <div class="aside" [style.background-color]="colors[Pcolor]">
+        <div class="center divHeight">
+            <!-- <div class="img" *ngIf="reader.onload">
+            <img [src]="url" alt="">
+            </div> -->
+
+
+        </div>
+        <div class="contact"
+            *ngIf="form.get('page1').get('Email').value || form.get('page1').get('Phone').value||form.get('page1').get('LinkedIn').value">
+            <h2>contact</h2>
+            <hr class="line">
+
+            <h4 *ngIf="form.get('page1').get('Phone').value" class="title">phone </h4>
+            <p>{{form.get('page1').get('Phone').value}}</p>
+
+            <h4 *ngIf="form.get('page1').get('Email').value" class="title">Email</h4>
+            <p>{{form.get('page1').get('Email').value}}</p>
+
+            <h4 *ngIf="form.get('page1').get('LinkedIn').value" class="title">LinkedIn</h4>
+            <a href="{{form.get('page1').get('LinkedIn').value}}" *ngIf="form.get('page1').get('LinkedIn').value">link</a>
+        </div>
+
+        <div class="skiil">
+
+
+            <h2 class="headline">Language</h2>
+            <hr class="line">
+            <div class="Language ProgressBar"
+                *ngFor="let item of form.get('page2').get('arrLanguage').value let p=index">
+                <p>{{item.Name}}</p>
+                <mat-progress-bar class="slider" *ngIf="item.Name" mode="determinate" value="{{item.Value}}">
+                </mat-progress-bar>
+            </div>
+
+            <h2 class="headline"> Skills</h2>
+            <hr class="line">
+
+            <div class="skils ProgressBar" *ngFor="let item of form.get('page2').get('arrSkils').value let p=index">
+                <p>{{item.Name}}</p>
+                <mat-progress-bar class="slider" *ngIf="item.Name" mode="determinate" value="{{item.Value}}">
+                </mat-progress-bar>
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <div class="right">
+        <div class="header">
+
+            <div class="name">
+                <p>{{form.get('page1').get('FullName').value}}</p>
+            </div>
+            <div class="abuot" [innerHTML]="form.get('page1').get('About').value">
+
+            </div>
+        </div>
+        <div class="main1">
+            <div *ngFor="let i of form.get('page3').get('ArrEducation').value;let p=index">
+                <div class="experiense">
+                    <h2>{{i.Headline}}</h2>
+                    <hr class="line">
+                    <div class="ExperienceLineSide" *ngIf="i.Headline.value !=' '">
+                        <div class="onee" *ngFor="let z of i.Data;let x=index" >
+
+                            <div class="date">
+                                <div class="circle"></div>
+
+                                <h4>
+                                    {{z.StartWork |getDate}}
+                                    <span *ngIf="this.form.get('page3').get('ArrEducation').get(p.toString()).get('Data').get(x.toString()).get('EndWork').touched">-</span>
+                                    {{z.EndWork |getDate}}</h4>
+                            </div>
+                            <h5> {{z.EducationName}} <span *ngIf="z.EducationName && z.EducationAddres">|</span>
+                                {{z.EducationAddres}}</h5>
+                            <h5>{{z.Position}}</h5>
+
+                            <div class="p-editorOU"
+                                [innerHTML]="this.form.get('page3').get('ArrEducation').get(p.toString()).get('Data').get(x.toString()).get('Content').value">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="colors">
+
+    <div class="color" *ngFor="let color of colors; let place=index"  >
+        <a (click)="chengeColor(color,place)" >
+            <div [style.background-color]="color">
+            </div>
+            
+        </a>
+    </div>
+</div>
+
+<div class="ButtonD">
+    <button pButton pRipple type="button" (click)="download()" label="download" class="p-button-raised p-button-success"></button>
+
+</div>

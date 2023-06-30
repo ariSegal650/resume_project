@@ -1,0 +1,7 @@
+.output{
+  display: grid;
+    width: 100%;
+}
+.output app-form-output{
+  display: grid;
+}

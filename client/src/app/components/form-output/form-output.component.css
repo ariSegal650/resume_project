@@ -1,0 +1,187 @@
+/*---------- output ------- */
+.output {
+ 
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    box-shadow: -2px -4px 11px 1px;
+    min-height: 296.5mm;
+    max-width: 210mm;
+    background: white;
+    zoom: 60%;
+    justify-self: center;
+    width: -webkit-fill-available;
+}
+.downloadS{
+    margin: 0 !important;
+    box-shadow: none !important;
+    zoom: 0 !important;
+}
+.abuot::ng-deep p{
+margin: 0;
+}
+.output .name p {
+    font-size: 50px;
+    color: #002D62;
+    line-height: 0.8;
+}
+mat-progress-bar {
+    width: 60%;
+}
+.output .aside {
+    background-color: #002244;
+    color: aliceblue;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.output .aside .img{
+    height: 133px;
+     width: 132px; 
+    border-radius: 50%;
+    margin-bottom: 35px;
+    display: grid;
+    justify-content: center;
+    overflow: hidden;
+   
+}
+.output .center.divHeight{
+    min-height: 140px;
+}
+.output .aside .img img{
+    width: 100%;
+    height: 100%;
+}
+.p-editorOU ::ng-deep p{
+    margin: 0;
+}
+
+.line {
+    width: 90%;
+    background-color: white;
+    height: 2px;
+    margin: 2px 5px 8px 0px;
+    border: none;
+}
+
+.output .aside .contact .title {
+    margin: 11px 0px 1px 0px;
+}
+
+.ProgressBar {
+    margin-bottom: 4px;
+
+}
+.ProgressBar p{
+    margin: 0 0 1.5px 0;
+}
+
+.output .headline {
+    padding-top: 15px;
+
+}
+
+.right {
+    padding-left: 47px;
+    background: white ;
+    overflow: hidden;
+}
+
+.output .right .header {
+    min-height: 220px;
+
+}
+
+.right .header .name {
+    padding-top: 37px;
+}
+
+.right .header .abuot {
+    padding-top: 10px;
+    margin-right: 43px;
+}
+
+.experiense .line, .Education .line {
+    background-color: black;
+}
+
+.ExperienceLineSide {
+    border-left: solid 2px;
+}
+
+.ExperienceLineSide .date {
+    display: flex;
+    right: 24px;
+    position: relative;
+}
+
+.ExperienceLineSide .circle {
+    margin-right: 5px;
+    clip-path: circle(50%);
+    border: black solid 2px;
+    border-radius: 15px;
+    background: white;
+    width: 12px;
+    height: 12px;
+    box-sizing: content-box !important;
+
+}
+.contact a{
+    color: aliceblue;
+}
+.onee {
+    margin: 15px 15px 10px 15px;
+
+}
+.colors{
+    display: flex;
+    justify-self: center;
+}
+.colors .color div{
+    height: 50px;
+    width: 30px;
+    border: solid 1px #FFF;
+    border-radius: 40px;
+    transition: width 0.3s, height 0.3s ease-out;
+}
+.colors .color div:hover{
+    height: 48px;
+    width: 48px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+.ButtonD{
+    display: grid;
+    margin: 10px 0;
+}
+.ButtonD button{
+    color: white;
+    background: #6abec0;
+    border: 1px solid #6abec0;
+}
+
+@media(max-width:1000px){
+
+    .main{
+        display: flex;
+        flex-wrap: wrap;
+       
+    }
+    /*--------------- input ------------------ */
+
+    /* output */
+    .output{
+        zoom: 50%;
+        width: 90%;
+        justify-self: center;
+
+    }
+}
+@media(min-width:1200px){
+    .input .header p {
+        font-size: 50px;
+       
+    }
+}
+
+

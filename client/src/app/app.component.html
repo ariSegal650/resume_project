@@ -1,0 +1,7 @@
+<p-toast position="top-center"></p-toast>
+<div class="busy" *ngIf="displayBusy">
+    <p-progressSpinner></p-progressSpinner>
+    <h3>Loading...</h3>
+</div>
+<app-header></app-header>
+<router-outlet></router-outlet>

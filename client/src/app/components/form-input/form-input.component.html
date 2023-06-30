@@ -1,0 +1,255 @@
+<div class="main" [ngClass]="{'download':activeIndex==3 ,'setLanguagertl':Languagertl}">
+
+  <div class="input" *ngIf="hideDow!=false" >
+    <form [formGroup]="infoForm" id="input" >
+      <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false">
+      </p-steps>
+      <div>
+        <!-- <mat-tab-group mat-align-tabs="center"> -->
+        <!-- tab 1 mat-tab-->
+        <div label="First" *ngIf="activeIndex==0" formGroupName="page1" class="center">
+          <div class="header Basic_details">
+            <div class="img1 centerTabOne">
+              <!-- <h3>{{'upload-profil-img' | translate}}</h3> -->
+              <!-- <input type="file" style="display: none;" multiple accept="image/*" (change)="onFileUpload($event)"
+                #selectFile>
+              <a (click)="selectFile.click()">
+                <mat-icon>add_photo_alternate</mat-icon>
+              </a> -->
+            </div>
+
+            <div class="name centerTabOne">
+              <h3>{{'Full-name' | translate}}</h3>
+              <input type="text" pInputText  formControlName="FullName" />
+            </div>
+            <div class="abuot ">
+
+
+              <h3>{{'About-you' | translate}}</h3>
+              <p-editor class="rtl" formControlName="About" [style]="{'height':'200px'}" [ngClass]="{'requrie':requriedEditor}">
+                <ng-template pTemplate="header">
+                  <span class="ql-formats">
+                    <button type="button" class="ql-bold" aria-label="Bold"></button>
+                    <button type="button" class="ql-italic" aria-label="Italic"></button>
+                    <button type="button" class="ql-underline" aria-label="Underline"></button>
+                    <button type="button" class="ql-link" aria-label="link"></button>
+
+                    <span class="ql-formats">
+                      <button class="ql-list" value="ordered"></button>
+                      <button class="ql-list" value="bullet"></button>
+                    </span>
+                    <div class="imgai" #imgaiClick (click)="getSuggestion(this.infoForm.get('page1').get('About').value,1)">
+                      <img src="../../../assets/images/favicon-32x32.png" alt="">
+                    </div>
+                    <p class="infoAi" [ngClass]="{'infoAiRtl':Languagertl}">get suggestions with OpenAI</p>
+                  </span>
+                </ng-template>
+              </p-editor>
+
+            </div>
+            <div class="contact centerTabOne">
+              <h3> {{'Phone-number' | translate}}</h3>
+              <!-- <input type="tel" inputmode="numeric" pInputText placeholder="055-1234567" formControlName="Phone"> -->
+              <p-inputMask class="rtl" placeholder="(999) 999-9999" mask="(999) 999-9999?9" inputmode="numeric" formControlName="Phone"></p-inputMask>
+
+              <h3>{{'Email' | translate}}</h3>
+              <input type="email" class="rtl" [class.is-invalid]="infoForm.get('page1').get('Email')?.errors" pInputText
+                placeholder="123@gmail.com" formControlName="Email">
+              <div class="invalid-feedback" *ngIf="infoForm.get('page1').get('Email')?.errors">please enter a correct
+                email</div>
+
+              <h3>{{'Linkedin' | translate}}</h3>
+              <input type="url" pInputText formControlName="LinkedIn">
+            </div>
+
+            <button (click)="changeTab(1)" type="button" class="endAndMargin" mat-stroked-button color="warn">next</button>
+          </div>
+
+
+        </div>
+        <!-- tab 2 -->
+        <div *ngIf="activeIndex==1" label="Second" formGroupName="page2">
+
+          <div class="aside center rtl">
+
+            <div class="Language center">
+              <h2>{{'Language' | translate}}</h2>
+              <div formArrayName="arrLanguage">
+
+                <div [formArrayName]="i"
+                  *ngFor="let l of infoForm.get('page2').get('arrLanguage')['controls'];let i=index">
+                  <input type="text" pInputText placeholder="e.g. English" formControlName="Name">
+
+                  <mat-slider color="accent">
+                    <input matSliderThumb formControlName="Value"></mat-slider>
+                </div>
+              </div>
+              <h4>{{'add Language' | translate}}</h4>
+              <button class="end" mat-mini-fab type="button" color="accent" (click)="addLanguage()">
+                +
+              </button>
+            </div>
+            <div class="skils center">
+              <h2>{{'Skills' | translate}} </h2>
+              <div formArrayName="arrSkils">
+
+                <div [formArrayName]="i"
+                  *ngFor="let s of infoForm.get('page2').get('arrSkils')['controls'];let i=index">
+                  <input type="text" pInputText placeholder="e.g. Python" formControlName="Name">
+                  <mat-slider color="accent">
+                    <input matSliderThumb formControlName="Value">
+                  </mat-slider>
+                </div>
+
+              </div>
+            </div>
+
+            <h4>{{'add skill' | translate}}</h4>
+            <button class="end" mat-mini-fab color="accent" type="button" (click)="addSkill()">
+              +
+            </button>
+
+            <button (click)="changeTab(2)" type="button" class="endAndMargin" mat-stroked-button color="warn">next</button>
+          </div>
+
+        </div>
+
+        <div *ngIf="activeIndex==2" label="Third" formGroupName="page3">
+
+          <div class="mainEducation" formArrayName="ArrEducation">
+            <!--  -->
+            <div class="ArrEducation" [formArrayName]="i" *ngFor="let e of GetArrEducation();let i=index ">
+              <!-- 4vw 1.5vw -->
+              <h2 class="headline">{{'{'+[e.value.Headline|translate]+'}' }}</h2>
+
+              <div class="new_input" *ngIf="i!=0 && i!=1">
+                <p>{{'enter a headline' | translate}}</p>
+                <input type="text" pInputText formControlName="Headline">
+              </div>
+
+              <div formArrayName="Data">
+
+                <!-- file -->
+                <div [formArrayName]="x" *ngFor="let z of getTamplateEducation(e); let x=index" class="inputEducation">
+                  <h3 class="number">
+                    < {{e.value.Headline|translate}} #  {{x+1}} >
+                  </h3>
+
+                  <div class="DateJob">
+                    <div>
+                      <h4>{{'Date start work' | translate}}</h4>
+                      <p-calendar view="month" [yearNavigator]="true" yearRange="2000:2030" dateFormat="mm/yy"
+                      [readonlyInput]="true" inputId="monthpicker" formControlName="StartWork"></p-calendar>
+
+                    </div>
+                    <div>
+                      <h4>{{'Date end work' | translate}}</h4>
+                      <p-calendar view="month" dateFormat="mm/yy" [yearNavigator]="true" yearRange="(2000:2030)"
+                      [readonlyInput]="true" inputId="monthpicker" formControlName="EndWork"></p-calendar>
+
+                    </div>
+
+                   </div>
+
+                  <h4>{{'Company/Education name' | translate}} </h4>
+                  <input type="text" pInputText formControlName="EducationName">
+
+                  <h4>{{'Company/Education Addres' | translate}}</h4>
+                  <input type="text" pInputText formControlName="EducationAddres">
+
+                  <h4>{{'Position title' | translate}}</h4>
+                  <input class="rtl" type="text" pInputText placeholder="e.g. Management" formControlName="Position">
+
+                  <h4>{{'Content' | translate}}</h4>
+
+                  <!-- <textarea pInputTextarea name="" id="" cols="30" rows="5" formControlName="Content"></textarea> -->
+                  <p-editor class="rtl" formControlName="Content" [style]="{'height':'200px'}" [ngClass]="{'requrie':requriedEditor}">
+                    <ng-template pTemplate="header">
+                      <span class="ql-formats">
+                        <button type="button" class="ql-bold" aria-label="Bold"></button>
+                        <button type="button" class="ql-italic" aria-label="Italic"></button>
+                        <button type="button" class="ql-underline" aria-label="Underline"></button>
+                        <button type="button" class="ql-link" aria-label="link"></button>
+                        <!-- <span class="ql-formats">
+                                <select class="ql-size">
+                                  <option value="small"></option>
+                                  <option selected=""></option>
+                                  <option value="large"></option>
+                                  <option value="huge"></option>
+                                </select>
+                              </span> -->
+                        <span class="ql-formats">
+                          <button class="ql-list" value="ordered"></button>
+                          <button class="ql-list" value="bullet"></button>
+                        </span>
+                        <div class="imgai" #imgaiClick
+                        (click)="getSuggestion(infoForm.get('page3').get('ArrEducation').get(i.toString()).get('Data').get(x.toString()).get('Content').value,2)">
+                        <img src="../../../assets/images/favicon-32x32.png" alt="">
+                      </div>
+                      <p class="infoAi">get suggestions with OpenAI</p>
+                      </span>
+                    </ng-template>
+
+                  </p-editor>
+
+                </div>
+              </div>
+
+              <h5 >{{'add' | translate}} {{e.value.Headline |translate}}</h5>
+              <button  mat-mini-fab color="accent" type="button" (click)="addEducation(i)">
+                +
+              </button>
+
+            </div>
+              <div class="addSection ">
+                <p >{{'add new section Military service/volunteering' | translate}}</p>
+                <button  mat-mini-fab color="accent" type="button" (click)="addSection()">
+                  +
+                </button>
+              </div>
+
+              <button (click)="changeTab(3)" type="button" class="endAndMargin end1" mat-stroked-button color="warn">next</button>
+          </div>
+
+          <!-- <button type="submit"></button> -->
+          <!-- <button (click)="EndDesign()" mat-raised-button color="warn">end</button> -->
+        </div>
+        <!-- </mat-tab-group> -->
+
+      </div>
+    </form>
+    <div class="response_ai" *ngIf="firstTime" #response1>
+      <a (click)="closeSuggestions()"><mat-icon>{{closeAiicon}}</mat-icon></a>
+
+      <div class="response" *ngIf="suggestionsOpen" >
+
+        <div class="content" *ngFor="let item of suggestions let p=index">
+
+          <div class="suggestion">
+            <h2>{{p+1}}.</h2>
+            <h4 #copyText>{{item}}</h4>
+          </div>
+
+          <div *ngIf="suggestionsBool[p]==false;  else copyd">
+            <button pButton pRipple type="button" class="p-button-raised p-button-secondary p-button-text"
+              (click)="copy_response(item,p)">copy text</button>
+          </div>
+
+            <ng-template #copyd>
+              <div class="copyd1">
+              <p>copied</p>
+              <mat-icon>done_all</mat-icon>
+            </div>
+            </ng-template>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="output"  [ngClass]="{'download':activeIndex==3}">
+    <app-form-output [form]="infoForm"></app-form-output>
+
+  </div>
+</div>

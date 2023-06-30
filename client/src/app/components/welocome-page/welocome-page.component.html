@@ -1,0 +1,49 @@
+<div class="login" *ngIf="loginComponent">
+  <div>
+    <p></p>
+    <span
+      ><a (click)="closeLogin()"><mat-icon>clear</mat-icon></a></span
+    >
+    <app-login></app-login>
+  </div>
+</div>
+<div class="flex">
+  <div class="main">
+    <div class="Welcome">
+      <p *ngIf="userEmail" class="font-size">
+        {{ "Welcome " | translate }} {{ userEmail }}
+      </p>
+      <p *ngIf="!userEmail" class="font-size">
+        {{ "Welcome to cv design" | translate }}
+      </p>
+    </div>
+    <!--  change the language -->
+    <div class="languge" #languge1>
+      <p>{{ "select a language" | translate }}</p>
+      <ul>
+        <li class="haderL" (click)="openL()">
+          {{ languge }} <img src="{{ imglanguge }}" />
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </li>
+        <div *ngIf="langugeChange" class="list">
+          <li
+            (click)="changeL('en')"
+            [ngClass]="{ selectOne: languge == 'English' }"
+          >
+            English <img src="../../../assets/images/flagUsa.jpg" alt="" />
+          </li>
+          <li
+            (click)="changeL('he')"
+            [ngClass]="{ selectOne: languge == 'Hebrew' }"
+          >
+            Hebrew <img src="../../../assets/images/glagIsrael.jpg" alt="" />
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <!-- <button >start </button> -->
+    <button routerLink="/main" mat-raised-button>start</button>
+  </div>
+</div>
+  <app-footer></app-footer>

@@ -1,0 +1,360 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, p {
+    margin: 0;
+}
+
+.mainEducation p-editor::ng-deep .p-editor-container::ng-deep .p-editor-content::ng-deep .ql-editor:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #bfdbfe;
+    border-color: #3B82F6;
+
+}
+.header p-editor::ng-deep .p-editor-container::ng-deep .p-editor-content::ng-deep .ql-editor:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #bfdbfe;
+    border-color: #3B82F6;
+}
+.requrie::ng-deep .p-editor-container::ng-deep .p-editor-content::ng-deep .ql-editor:focus {
+    box-shadow: 0 0 0 0.09rem #e60e0e !important;
+}
+
+.input button{
+    background-color: #6abec0;
+}
+.input mat-slider{
+    --mdc-slider-focus-handle-color: #6abec0;
+    --mdc-slider-hover-handle-color: #6abec0;
+    --mdc-slider-active-track-color: #6abec0;
+    --mdc-slider-inactive-track-color: #6abec0;
+    --mdc-slider-with-tick-marks-active-container-color: #6abec0;
+    --mdc-slider-with-tick-marks-inactive-container-color: #6abec0;
+    --mat-mdc-slider-ripple-color: #6abec0;
+    --mdc-slider-handle-color: #6abec0;
+}
+p-editor button{
+    background: none !important;
+}
+/* p-editor{
+    max-width: 40vw;
+} */
+
+.main {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+.center {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+}
+
+.end {
+    justify-self: end;
+}
+.end1 {
+    justify-self: end;
+    margin: 5px 5%;
+}
+.endAndMargin{
+    justify-self: end;
+    margin-top: 15px;
+    color: white !important;
+    box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+}
+
+/*------------- input ----- */
+p-steps::ng-deep .p-steps-item::ng-deep .p-menuitem-link {
+    background: none;
+}
+
+.input {
+    display: grid;
+
+    background: #fbceb124;
+    width: 100%;
+    padding-top: 10px
+}
+
+.input .header h3, .input .contact h3 {
+
+    color: #007791;
+    margin-bottom: 3px;
+    margin-top: 27px;
+}
+
+.invalid-feedback {
+    color: red;
+}
+
+/* tab 1 */
+.input .header {
+    display: grid;
+    justify-content: center;
+    margin-top: 20px ;
+    width: min-content;
+}
+
+.input .header .contact {
+    display: grid;
+
+}
+
+.centerTabOne {
+    display: grid;
+    justify-content: center;
+
+}
+
+input {
+    padding: 0.75rem 0.75rem;
+    width: 55vw;
+}
+p-inputMask::ng-deep input{
+    width: 55vw;
+}
+.input .aside input{
+    width: 230px;
+}
+
+/* tab 2 */
+.input .aside h4 {
+    justify-self: end;
+    color: #007791;
+    margin: 0;
+}
+.input .aside h2{
+    color: #007791;
+}
+
+.input  .EndButton {
+    justify-self: end;
+    margin: 0 30px 0 0;
+}
+
+/* tab 3 */
+.ArrEducation{
+    display: grid;
+    justify-content: center;
+}
+.input .inputEducation {
+    display: grid;
+    justify-content: center;
+    margin-top: 15px;
+}
+.input .mainEducation{
+    display: grid;
+    justify-content: center;
+}
+.input .mainEducation .headline {
+   margin-top: 30px;
+   color: #002D62;
+   position: relative;
+   justify-content: center;
+   /* margin-left: 3.5vw; */
+   display: grid;
+}
+
+.input .mainEducation h4 {
+    margin-top: 10px;
+    color: #1b6f82;
+}
+
+.input .mainEducation h5 {
+    justify-self: end;
+    color: #1b6f82;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+.input .Language {
+    margin-top: 15px;
+}
+
+.input .mainEducation button {
+    justify-self: end;
+}
+
+.input .mainEducation .ArrEducation {
+    display: grid;
+    width: min-content;
+}
+
+.input .mainEducation .ArrEducation .number {
+    justify-content: center;
+    display: grid;
+    margin-bottom: 5px;
+}
+.addSection{
+    display: grid;
+    margin: 15px;
+}
+.addSection p{
+    color: #1b6f82;
+}
+.addSection button{
+    justify-self: auto !important;
+    margin-left: 15px;
+
+}
+.DateJob{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.download {
+    display: grid !important;
+    grid-template-columns: none;
+}
+
+app-form-output {
+    display: grid;
+    direction: initial;
+}
+.imgai{
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    height: 24px;
+    padding: 3px 5px;
+    width: 28px;
+}
+.imgai img{
+    width: 100%;
+    height: 100%;
+}
+.infoAi{
+    position: absolute;
+    left: 0px;
+    z-index: 1;
+    padding: 0.25rem 0.5rem;
+    color: #fff;
+    text-align: center;
+    background-color: #000;
+    border-radius: 0.25rem;
+    font-size: inherit !important;
+    display: none;
+    left: 30%;
+}
+.infoAiRtl{
+    left: 0 !important;
+}
+.rtl{
+    direction: initial;
+}
+.imgai:hover ~ .infoAi{
+    display: grid;
+}
+
+.response_ai{
+    position: absolute;
+    display: grid;
+    margin-top: 70px;
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), rgba(0, 0, 0, 0);
+    position: fixed;
+    z-index: 2;
+}
+.response_ai a{
+    cursor: pointer;
+    justify-self: right;
+    margin: 5px 5px 5px 0;
+}
+.response_ai a .mat-icon{
+    font-size: xx-large;
+}
+.response_ai .response{
+
+    padding: 0px 15px 15px 10px;
+}
+.response_ai .response .content{
+    margin-bottom: 13px;
+    display: grid;
+    max-width: 60vw;
+    overflow: auto;
+    border: solid 0.1px black;
+}
+.response_ai .response .content .suggestion{
+    grid-template-columns: 1fr 15fr;
+    display: grid;
+}
+.response_ai button{
+    margin: 4px;
+    border: solid 0.2px;
+    padding: 4px 7px;
+    color: black;
+}
+.response_ai .response div{
+    display: flex;
+    justify-self: center;
+    font-size: x-large;
+}
+.setLanguagertl{
+    direction: rtl;
+}
+
+@media(max-width:1100px) {
+
+    .main {
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+    .output {
+        display: none;
+
+    }
+}
+
+@media(min-width:1200px) {
+    .input .header p {
+        font-size: 50px;
+    }
+
+}
+
+@media(min-width:1100px) {
+    .download {
+        justify-self: center;
+        min-width: 205mm;
+    }
+    .response_ai .response div{
+        max-width: 40vw;
+    }
+    .input .aside input{
+        width: 250px;
+    }
+    input{
+        width: 40vw;
+    }
+    p-inputMask::ng-deep input{
+        width: 40vw;
+    }
+    .infoAi{
+        left: 15%;
+    }
+
+}
+@media(max-width:800px) {
+    input{
+        width: 70vw;
+    }
+    p-inputMask::ng-deep input{
+        width: 70vw;
+    }
+}
+@media(max-width:600px) {
+  .DateJob{
+    grid-template-columns: none;
+  }
+}
+
