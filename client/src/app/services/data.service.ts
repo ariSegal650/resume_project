@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserDataSave } from '../models/Data';
 import { IdOnly } from '../models/IdOnly';
+import { async } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,13 +11,13 @@ import { IdOnly } from '../models/IdOnly';
 export class DataService {
   constructor(private http: HttpClient, private r: Router) {}
 
-  GetResume(id:string) {
+   GetResume(id:string) {
     let user= new IdOnly();
     user.id=id;
-   return this.http.post("/api/Data/GetResume",user);
+   return  this.http.post("/api/Data/GetResume",user);
   }
 
-  formatData(value){
+  async formatData(value){
     console.log(value);
 
     sessionStorage.setItem('page1',value?.page1);
@@ -24,7 +25,7 @@ export class DataService {
     sessionStorage.setItem('page3',value?.page3);
   }
 
-  SaveInfoWOResponse() {
+ async SaveInfoWOResponse() {
     let data = new UserDataSave();
     if (sessionStorage.getItem('page1')) {
       data.page1 = sessionStorage.getItem('page1');
