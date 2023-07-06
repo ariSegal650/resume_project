@@ -8,7 +8,8 @@ namespace LogicServices.Data
     {
         public DataContext(DbContextOptions options) : base(options)
         {
-
+            UsersData=Set<UserDataClass>();
+            UsersStatistics=Set<StatisticsInfoClass>();
         }
 
         public DbSet<UserDataClass> UsersData { get; set; }

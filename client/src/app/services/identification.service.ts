@@ -75,7 +75,7 @@ export class IdentificationService {
 
 
 
-  linkedin(code: string) {
+  async linkedin(code: string) {
     this._code.code = code;
 
     this.http.post<any>('/api/Identification/loginLinkedin', this._code)
@@ -101,7 +101,7 @@ export class IdentificationService {
       });
   }
 
-  checkTokenlinkedin() {
+  async checkTokenlinkedin() {
     this._code.code = localStorage.getItem('linkedinToken');
 
     this.http.post<any>('/api/Identification/checkTokenLinkedin', this._code)
@@ -120,7 +120,7 @@ export class IdentificationService {
         },
       });
   }
-  checkTokenGoogle() {
+  async checkTokenGoogle() {
     this.googleToken.code=localStorage.getItem('GoogleToken');
     this.http.post('/api/Identification/CheckTokenGoogle', this.googleToken)
       .subscribe({

@@ -19,8 +19,9 @@ export class BackEndService {
 
   }
 
-  createUser(): void {
-    this.http.post<IdOnly>('/api/Statistics/CreateUser', null).subscribe({
+ async createUser() {
+
+   await this.http.post<IdOnly>('/api/Statistics/CreateUser', null).subscribe({
       next: (value) => {
         if (value?.id != undefined) {
           this.idClass.id = (value?.id as string) || ' ';
@@ -32,13 +33,13 @@ export class BackEndService {
     });
   }
  
-  AddClick() {
+ async AddClick() {
     this.http.post('/api/Statistics/AddClickEvent', this.idClass).subscribe({});
   }
-  AddDownload() {
+  async AddDownload() {
     this.http.post('/api/Statistics/AddDownload', this.idClass).subscribe({});
   }
-  AddCity(_city: string) {
+  async AddCity(_city: string) {
     this.UserS.city = _city;
     this.http.post('/api/Statistics/AddDownload', this.UserS).subscribe();
   }
