@@ -47,12 +47,12 @@ export class IdentificationService {
   //     if(this.count<3){
   //       this.signInGoogle(this.auth2);
   //     }
-
+ 
   //   }
 
   // }
-  async signInGoogle(token:string):Promise<void> {
-    this.googleToken.code=token;
+   signInGoogle(token:string) {
+    this.googleToken.code=token;               
            this.http.post('/api/Identification/CheckTokenGoogle', this.googleToken).subscribe({
             next: (value) => {
              localStorage.setItem('GoogleToken',this.googleToken.code);
@@ -129,7 +129,7 @@ export class IdentificationService {
           this.userSubject.next(value);
           this.dataUser.formatData(value);
         },
-        error: (Error) => {
+        error: (Error) => { 
         },
       });
   }

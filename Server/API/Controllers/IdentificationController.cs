@@ -10,15 +10,15 @@ namespace API.Controllers
     public class IdentificationController : Controller
     {
         //private DataController DataUser;
-         private readonly IMapper _mapper;
+        private readonly IMapper _mapper;
         private readonly IdentificationService _identificationService;
         private readonly DataService _dataService;
-        public IdentificationController(IdentificationService identificationService,DataService dataService, IMapper mapper)
+        public IdentificationController(IdentificationService identificationService, DataService dataService, IMapper mapper)
         {
             _dataService = dataService;
-           _identificationService = identificationService;
-            _mapper=mapper;
-           // this.DataUser = new DataController(this._Context,this._mapper);
+            _identificationService = identificationService;
+            _mapper = mapper;
+            // this.DataUser = new DataController(this._Context,this._mapper);
         }
 
 
@@ -39,28 +39,41 @@ namespace API.Controllers
         public async Task<IActionResult> checkTokenLinkedin([FromBody] LinkedinDto access_token)
         {
             var Email = await _identificationService.checkTokenLinkedin(access_token.code);
-            if (Email != null)
+            if (string.IsNullOrEmpty(Email))
             {
-                return Ok(await _dataService.GetUserData(Email, null));
+                return BadRequest("something went wrong");
             }
-            else {return new BadRequestObjectResult("something went wrong"); }
+            var userData =await _dataService.GetUserData(Email, null);
+            if (userData is null)
+            {
+                return BadRequest("something went wrong");
+            }
+            return Ok(userData);
         }
 
         [HttpPost("CheckTokenGoogle")]
         public async Task<IActionResult> CheckTokenGoogle([FromBody] LinkedinDto access_token)
         {
-
-            var Email=await _identificationService.CheckTokenGoogle(access_token.code);
-            if (Email != null)
+           
+            var Email =await _identificationService.CheckTokenGoogle(access_token.code);
+            
+            if (string.IsNullOrEmpty(Email))
             {
-                return Ok(await _dataService.GetUserData(Email, null));
+                return BadRequest("something went wrong");
             }
-            else { return new BadRequestObjectResult("something went wrong"); }
+
+            var userData =await _dataService.GetUserData(Email, null);
+            if (userData is null)
+            {
+                return BadRequest("something went wrong");
+            }
+            return Ok(userData);
+
         }
 
-        
 
-       
+
+
     }
 
 }

@@ -12,13 +12,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<DataService>();
 builder.Services.AddScoped<StatisticsService>();
+builder.Services.AddScoped<IdentificationService>();
 
 try
 {
     builder.Services.AddDbContext<DataContext>(opt =>
     {
-
-        opt.UseNpgsql(builder.Configuration.GetConnectionString("AppDb"));
+        opt.UseSqlite(builder.Configuration.GetConnectionString("app"));
     });
 
 }

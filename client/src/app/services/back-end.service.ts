@@ -27,7 +27,7 @@ export class BackEndService {
           this.idClass.id = (value?.id as string) || ' ';
           this.UserS.id = (value?.id as string) ?? ' ';
         } else {
-          console.log('un');
+          console.log('error');
         } 
       },
     });

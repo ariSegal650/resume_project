@@ -15,15 +15,12 @@ namespace LogicServices.Services
         public async Task<string?> CreateUser()
         {
             StatisticsInfoClass a = new StatisticsInfoClass();
-
-            string USerID = a.ToString();
-
+            
             try
             {
                 _Context.UsersStatistics.Add(a);
                 await _Context.SaveChangesAsync();
-
-                return USerID;
+                return a.id.ToString();
             }
             catch (System.Exception)
             {
@@ -56,17 +53,19 @@ namespace LogicServices.Services
             }
             else { return false; }
         }
-        public async Task<bool> AddDownload(Guid UserId)
+        public async Task<bool> AddDownload(string UserId)
         {
-            var User = _Context.UsersStatistics.First(i => i.id == UserId);
-            if (User != null)
-            {
-                User.download = true;
-                _Context.UsersStatistics.Update(User);
-                await _Context.SaveChangesAsync();
-                return true;
-            }
-            else { return false; }
+            var id = Guid.Empty;
+            var format = Guid.TryParse(UserId, out id);
+
+            var User =_Context.UsersStatistics.FirstOrDefault(i => i.id == id);
+            if (User == null) { return false; }
+
+            User.download = true;
+            _Context.UsersStatistics.Update(User);
+            await _Context.SaveChangesAsync();
+            return true;
+
         }
     }
 }

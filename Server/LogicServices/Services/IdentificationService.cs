@@ -1,6 +1,8 @@
 ﻿using LogicServices.Data;
 using LogicServices.Dto;
 using System.Text.Json;
+using System.Net.Http;
+
 
 namespace LogicServices.Services
 {
@@ -12,7 +14,7 @@ namespace LogicServices.Services
         {
             _Context = context;
         }
-
+ 
         public async Task<ResponseLoginDTO?> loginLinkedinAsync(string _code)
         {
             var client = new HttpClient();
@@ -94,9 +96,9 @@ namespace LogicServices.Services
             return null!;
         }
 
-        public async Task<string> CheckTokenGoogle(string access_token)
+        public async Task<string?> CheckTokenGoogle(string access_token)
         {
-
+           
             var httpclient = new HttpClient();
 
             var parameters = new Dictionary<string, string>
@@ -106,22 +108,27 @@ namespace LogicServices.Services
 
             try
             {
+                
                 var content = new FormUrlEncodedContent(parameters);
 
                 var response = await httpclient.PostAsync("https://oauth2.googleapis.com/tokeninfo", content);
+               
 
                 var result = await response.Content.ReadAsStringAsync();
                 var json = JsonSerializer.Deserialize<JsonElement>(result);
                 var email = json.GetProperty("email").ToString();
-                if (email != null)
+                if (!string.IsNullOrEmpty(email))
                 {
+                  
                     return email;
                 }
 
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
+              
 
+                System.Console.WriteLine(ex);
             }
             return null!;
         }

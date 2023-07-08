@@ -5,4 +5,5 @@
 # folders server side
 bin
 obj
-
+appsettings.json
+*.db

@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ChangeLangugeSService } from './services/change-languge-s.service';
 import { PrimeNGConfig } from 'primeng/api';
-import { MessageService } from 'primeng/api';
 import { BusyService } from './services/busy.service';
 import { BackEndService } from './services/back-end.service';
-import { DataService } from './services/data.service';
 import { IdentificationService } from './services/identification.service';
 
 @Component({

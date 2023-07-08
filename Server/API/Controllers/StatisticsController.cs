@@ -1,4 +1,5 @@
-﻿using API.Dto;
+﻿using System.Text.Json;
+using API.Dto;
 using AutoMapper;
 using LogicServices.Entities;
 using LogicServices.Services;
@@ -7,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
-{ 
+{
     [Route("api/[controller]")]
     [ApiController]
     public class StatisticsController : ControllerBase
@@ -15,17 +16,18 @@ namespace API.Controllers
         private StatisticsService _StatisticsService;
         public StatisticsController(StatisticsService StatisticsService)
         {
-              _StatisticsService = StatisticsService;
-        } 
+            _StatisticsService = StatisticsService;
+        }
 
 
         [HttpPost("CreateUser")]
         public async Task<IActionResult> CreateUser()
         {
             var user = await _StatisticsService.CreateUser();
-            if (user is null) { return new BadRequestObjectResult("somting want worng with the database"); }
-
-            return Ok(user);
+            if (string.IsNullOrEmpty(user)) { return new BadRequestObjectResult("somting want worng with the database"); }
+            IdOnlyDto response=new IdOnlyDto();
+            response.id=user;
+            return Ok(response);
         }
 
         [HttpPost("AddClickEvent")]
@@ -56,7 +58,7 @@ namespace API.Controllers
 
             return BadRequest();
         }
-        
+
 
     }
 }
