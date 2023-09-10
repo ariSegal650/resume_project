@@ -7,6 +7,7 @@ import { PresentsResumeComponent } from './components/presents-resume/presents-r
 import { PrivacyComponent } from './components/privacy/privacy.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { WelocomePageComponent } from './components/welocome-page/welocome-page.component';
+import { JobsComponent } from './components/jobs/jobs.component';
 
 const routes: Routes = [
 {path:"welcome",component:WelocomePageComponent},
@@ -16,6 +17,8 @@ const routes: Routes = [
 {path:"privacy",component:PrivacyComponent},
 {path:"resume/:id",component:PresentsResumeComponent},
 {path:"profile",component:ProfileComponent},
+{path:"jobs/:job/:country",component:JobsComponent},
+//{path:"job/:id",component:OnePageJobComponent},
 {path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),canActivate:[ActiveMangerGuard] },
 {path:"",component:WelocomePageComponent},
 {path:"**" ,redirectTo:'main'}

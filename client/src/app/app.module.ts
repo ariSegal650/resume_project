@@ -39,6 +39,10 @@ import { PrivacyComponent } from './components/privacy/privacy.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { PresentsResumeComponent } from './components/presents-resume/presents-resume.component';
+import { JobsComponent } from './components/jobs/jobs.component';
+import { CardModule } from 'primeng/card';
+import { FormattedPostedDatePipe } from './pipes/formatted-posted-date.pipe';
+import { FormatYearPipe } from './pipes/format-year.pipe';
 
 @NgModule({
   declarations: [
@@ -53,6 +57,9 @@ import { PresentsResumeComponent } from './components/presents-resume/presents-r
     FooterComponent,
     ProfileComponent,
     PresentsResumeComponent,
+    JobsComponent,
+    FormattedPostedDatePipe,
+    FormatYearPipe,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +86,7 @@ import { PresentsResumeComponent } from './components/presents-resume/presents-r
     ToastModule,
     RippleModule,
     PasswordModule,
+    CardModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

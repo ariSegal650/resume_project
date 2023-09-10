@@ -21,7 +21,7 @@ export class FormOutputComponent {
   downloadClick:boolean=false
   @Input() form = new FormGroup({});
   element:any;
-
+  closeJob:boolean=true
   constructor(private _busyService:BusyService,private _massege:MessageServiceClient,
     private _BackEndService:BackEndService) { }
 

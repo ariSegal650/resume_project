@@ -108,3 +108,21 @@
     <button pButton pRipple type="button" (click)="download()" label="download" class="p-button-raised p-button-success"></button>
 
 </div>
+
+<div id="modalOverlay" class="modal-overlay jobs" *ngIf="closeJob">
+    <!-- Modal container -->
+    <div class="modal-container">
+        <!-- Modal close button -->
+        <button class="modal-close-button" (click)="closeJob=false">	<mat-icon>close</mat-icon></button>
+        <!-- Modal content -->
+      
+        <p>    we found a few jobs for you </p>
+        
+        <!-- Modal footer -->
+        <p-button label="Find more " [routerLink]="['/jobs', form.get('page1').get('FullName').value, '10']"
+        styleClass="p-button-rounded p-button-sm"> <mat-icon style="height: 20px; overflow: visible;">launch</mat-icon> </p-button>
+
+          <p-button label="Stay in page" (click)="closeJob=false" styleClass="p-button-raised p-button-text p-button-secondary p-button-rounded p-button-sm" ></p-button>
+
+    </div>
+</div>

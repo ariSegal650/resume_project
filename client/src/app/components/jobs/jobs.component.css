@@ -1,0 +1,70 @@
+.jobs{
+  width: 40vw;
+  /* justify-self: end; */
+  height: 100vh;
+  overflow: scroll;
+}
+.img{
+  width: 60px;
+  border-radius: 50%;
+}
+.img img{
+  width: 100%;
+    border-radius: 50%;
+}
+.card{
+  border-bottom: black solid 0.5px;
+    display: flex;
+    /* width: fit-content; */
+    padding: 10px;
+}
+.jobs .title{
+  /* font-size: 24px; */
+    display: grid;
+    align-content: space-around;
+    margin-left: 10px;
+}
+a{
+  text-decoration: none;
+  cursor: pointer;
+}
+.jobs a {
+  color: #0a66c2
+}
+.jobs .title p:nth-child(1){
+  font-size: 22px;
+}
+.jobs .title p:nth-child(2){
+  font-size: 21px;
+  font-family: monospace;
+}
+.jobs .title p:nth-child(3){
+  font-size: 18px;
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* present job */
+
+.present_job{
+  width: 45vw;
+  padding: 15px 15px 0 5px;
+  height: 90vh;
+    overflow-y: auto;
+}
+.present_job .title{
+  font-size: 22px;
+}
+.present_job .main{
+  font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.present_job p-button::ng-deep button{
+  flex-direction: row-reverse;
+}

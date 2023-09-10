@@ -7,11 +7,8 @@ import { MessageServiceClient } from 'src/app/services/message.service';
 import { environment } from 'src/environments/environment';
 import { ChangeLangugeSService } from 'src/app/services/change-languge-s.service';
 import { BackEndService } from 'src/app/services/back-end.service';
-import { Page1, Page2, Page3 } from 'src/app/models/Data';
 import { DataService } from 'src/app/services/data.service';
 import { IdentificationService } from 'src/app/services/identification.service';
-import { JSDocComment } from '@angular/compiler';
-import { JsonpClientBackend } from '@angular/common/http';
 
 @Component({
   selector: 'app-form-input',

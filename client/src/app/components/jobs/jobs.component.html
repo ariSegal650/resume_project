@@ -1,0 +1,44 @@
+<div class="flex">
+
+  <div class="jobs">
+    <div *ngFor="let item of list_Jobs">
+      <div class="card">
+        <div class="img">
+          <img src="{{item.employer_logo}}" alt="">
+        </div>
+        <div class="title">
+          <a (click)="presentJob(item)">
+            <p>{{item.job_title}}</p>
+          </a>
+          <p>{{item.employer_name}}</p>
+          <p>{{item.job_country}} {{item.job_state}} {{item.job_city}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="present_job">
+    <div *ngIf="selectJob">
+
+      <div class="header">
+
+        <div class="title">
+          {{selectedJob.job_title}}
+        </div>
+        <p>{{selectedJob.employer_name}}<span> ° </span>{{selectedJob.job_country}} {{selectedJob.job_state}}
+          {{selectedJob.job_city}}</p>
+        <p>{{selectedJob.job_posted_at_datetime_utc| formattedPostedDate}}</p>
+        <p *ngIf="selectedJob.job_required_experience.required_experience_in_months">
+          Required Experience:
+          {{selectedJob.job_required_experience.required_experience_in_months |formatYear}}</p>
+        <a href="{{selectedJob.job_apply_link}}" target="_blank"> <p-button label="Apply"
+            styleClass="p-button-rounded p-button-sm"> <mat-icon>launch</mat-icon> </p-button></a>
+      </div>
+      <div class="main">
+        <p>{{selectedJob.job_description}}</p>
+      </div>
+    </div>
+  </div>
+
+
+</div>

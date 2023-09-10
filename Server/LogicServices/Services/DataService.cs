@@ -95,9 +95,9 @@ namespace LogicServices.Services
 
             try
             {
-                user.page1 = userD?.page1;
-                user.page2 = userD.page2;
-                user.page3 = userD.page3;
+                user.page1 = userD.page1 ?? "";
+                user.page2 = userD.page2 ?? "";
+                user.page3 = userD.page3 ?? "";
                 _Context.Update(user);
                 await _Context.SaveChangesAsync();
                 return true;

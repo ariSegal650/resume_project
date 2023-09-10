@@ -1,6 +1,6 @@
 /*---------- output ------- */
 .output {
- 
+
     margin: 20px;
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -12,22 +12,27 @@
     justify-self: center;
     width: -webkit-fill-available;
 }
-.downloadS{
+
+.downloadS {
     margin: 0 !important;
     box-shadow: none !important;
     zoom: 0 !important;
 }
-.abuot::ng-deep p{
-margin: 0;
+
+.abuot::ng-deep p {
+    margin: 0;
 }
+
 .output .name p {
     font-size: 50px;
     color: #002D62;
     line-height: 0.8;
 }
+
 mat-progress-bar {
     width: 60%;
 }
+
 .output .aside {
     background-color: #002244;
     color: aliceblue;
@@ -35,24 +40,27 @@ mat-progress-bar {
     overflow: hidden;
 }
 
-.output .aside .img{
+.output .aside .img {
     height: 133px;
-     width: 132px; 
+    width: 132px;
     border-radius: 50%;
     margin-bottom: 35px;
     display: grid;
     justify-content: center;
     overflow: hidden;
-   
+
 }
-.output .center.divHeight{
+
+.output .center.divHeight {
     min-height: 140px;
 }
-.output .aside .img img{
+
+.output .aside .img img {
     width: 100%;
     height: 100%;
 }
-.p-editorOU ::ng-deep p{
+
+.p-editorOU ::ng-deep p {
     margin: 0;
 }
 
@@ -72,7 +80,8 @@ mat-progress-bar {
     margin-bottom: 4px;
 
 }
-.ProgressBar p{
+
+.ProgressBar p {
     margin: 0 0 1.5px 0;
 }
 
@@ -83,7 +92,7 @@ mat-progress-bar {
 
 .right {
     padding-left: 47px;
-    background: white ;
+    background: white;
     overflow: hidden;
 }
 
@@ -101,7 +110,8 @@ mat-progress-bar {
     margin-right: 43px;
 }
 
-.experiense .line, .Education .line {
+.experiense .line,
+.Education .line {
     background-color: black;
 }
 
@@ -126,62 +136,123 @@ mat-progress-bar {
     box-sizing: content-box !important;
 
 }
-.contact a{
+
+.contact a {
     color: aliceblue;
 }
+
 .onee {
     margin: 15px 15px 10px 15px;
 
 }
-.colors{
+
+.colors {
     display: flex;
     justify-self: center;
 }
-.colors .color div{
+
+.colors .color div {
     height: 50px;
     width: 30px;
     border: solid 1px #FFF;
     border-radius: 40px;
     transition: width 0.3s, height 0.3s ease-out;
 }
-.colors .color div:hover{
+
+.colors .color div:hover {
     height: 48px;
     width: 48px;
     border-radius: 40px;
     cursor: pointer;
 }
-.ButtonD{
+
+.ButtonD {
     display: grid;
     margin: 10px 0;
 }
-.ButtonD button{
+
+.ButtonD button {
     color: white;
     background: #6abec0;
     border: 1px solid #6abec0;
 }
 
-@media(max-width:1000px){
 
-    .main{
+/* jobs found alert */
+
+/* Styles for the modal overlay */
+.jobs.modal-overlay {
+    /* display: none; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 50;
+}
+
+/* Styles for the modal container */
+.jobs .modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for the modal close button */
+.jobs .modal-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    cursor: pointer;
+    border: none;
+}
+.jobs p-button::ng-deep button{
+    flex-direction: row-reverse;
+}
+.jobs p-button{
+    margin: 3px;
+}
+.jobs p{
+    font-size: 28px;
+    margin: 2px 14px 5px 0;
+    text-align: center;
+    /* font-family: Arial, sans-serif; */
+    line-height: 1.1;
+    align-self: inherit;
+    display: grid;
+    align-content: flex-end;
+}
+
+
+@media(max-width:1000px) {
+
+    .main {
         display: flex;
         flex-wrap: wrap;
-       
+
     }
+
     /*--------------- input ------------------ */
 
     /* output */
-    .output{
+    .output {
         zoom: 50%;
         width: 90%;
         justify-self: center;
 
     }
 }
-@media(min-width:1200px){
+
+@media(min-width:1200px) {
     .input .header p {
         font-size: 50px;
-       
+
     }
 }
-
-
