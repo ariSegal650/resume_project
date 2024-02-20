@@ -14,13 +14,13 @@ import { IdentificationService } from './services/identification.service';
   providedIn: 'root',
 })
 export class ActiveMangerGuard implements CanActivate {
-  admin:boolean=false;
+  admin: boolean = false;
   constructor(private login: IdentificationService, private _route: Router) {
 
-  this.login.getAdmin().subscribe((value) => {
-  console.log( this.login.admin.getValue());
-  this.admin=value
-  })
+    this.login.getAdmin().subscribe((value) => {
+      console.log(this.login.admin.getValue());
+      this.admin = value
+    })
   }
 
   canActivate(
@@ -33,14 +33,14 @@ export class ActiveMangerGuard implements CanActivate {
     | UrlTree {
 
 
-        if (this.admin) {
-          console.log(true);
-          return true;
-        } else {
-          console.log(false);
-          this._route.navigateByUrl('login');
-        }
-        return false;
+    if (this.admin) {
+      console.log(true);
+      return true;
+    } else {
+      console.log(false);
+      this._route.navigateByUrl('login');
+    }
+    return false;
 
 
   }
